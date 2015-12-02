@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ngChat</title>
+</head>
+<body ng-app='ngChat' ng-controller='mainCtrl'>
+  <h3>ngChat</h3>
+  
+  <div>
+    <label for="name">Name:</label>
+    <input ng-model='message.name' type="text" id="name">
+  </div>
+  <div>
+    <label for="message">Message</label>
+    <input ng-model='message.text' type="text" id="message">
+    <button ng-click='sendMessage()' id='send'>Send</button>    
+  </div>
+
+
+  <ul id="messages">
+    <li ng-repeat='message in messages track by $index' class="message">
+      {{message.name}} - {{message.text}}
+    </li>
+  </ul>
+
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/socket.io-client/socket.io.js"></script>
+  <script src="bower_components/angular-socket-io/socket.min.js"></script>
+  <script src="module.js"></script>
+</body>
+</html>
